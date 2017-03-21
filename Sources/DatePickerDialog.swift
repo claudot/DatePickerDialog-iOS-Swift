@@ -19,8 +19,8 @@ open class DatePickerDialog: UIView {
     private var dialogView:   UIView!
     private var titleLabel:   UILabel!
     open var datePicker:    UIDatePicker!
-    private var cancelButton: UIButton!
-    private var doneButton:   UIButton!
+    var cancelButton: UIButton!
+    var doneButton:   UIButton!
     
     // MARK: - Variables
     private var defaultDate:    Date?
@@ -221,8 +221,8 @@ open class DatePickerDialog: UIView {
         if showCancelButton {
             self.cancelButton = UIButton(type: .custom) as UIButton
             self.cancelButton.frame = isLeftToRightDirection ? leftButtonFrame : rightButtonFrame
-            self.cancelButton.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), for: .normal)
-            self.cancelButton.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5), for: .highlighted)
+            self.cancelButton.setTitleColor(self.tintColor, for: .normal)
+            self.cancelButton.setTitleColor(self.tintColor, for: .highlighted)
             self.cancelButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: 14)
             self.cancelButton.layer.cornerRadius = kDatePickerDialogCornerRadius
             self.cancelButton.addTarget(self, action: .buttonTapped, for: .touchUpInside)
